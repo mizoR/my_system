@@ -1,0 +1,16 @@
+if [ $? -ne 0 ]; then
+  echo 'Error: go command is required' >&2
+  exit 1
+fi
+
+# hub
+go get github.com/github/hub
+
+# ghq
+go get github.com/motemen/ghq
+
+# ghq
+go get github.com/peco/peco/cmd/peco
+
+# mdt
+go get github.com/monochromegane/mdt/...
