@@ -34,6 +34,12 @@ module MySystem
         if !system(cmd)
           raise MySystem::InstallError
         end
+
+        cmd = "#{neobundle_dir.join('bin', 'neoinstall')}"
+
+        if !system(cmd)
+          raise MySystem::InstallError
+        end
       end
 
       def create_vimrc
