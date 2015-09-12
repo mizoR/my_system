@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'pathname'
 require 'open3'
 
 module MySystem
