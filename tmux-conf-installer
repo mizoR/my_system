@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# include helper.sh
+. helper.sh
+
+ln -sf ~/my_system/dotfiles/.tmux.conf ~/.tmux.conf
