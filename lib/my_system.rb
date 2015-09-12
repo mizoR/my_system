@@ -31,7 +31,7 @@ module MySystem
       end
 
       def setup
-        bundle_dir MySystem::Dir.user_home.join('.vim', 'bundle')
+        bundle_dir = MySystem::Dir.user_home.join('.vim', 'bundle')
         FileUtils.mkdir_p bundle_dir
       end
     end
