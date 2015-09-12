@@ -1,10 +1,7 @@
 #!/bin/bash
 
-installers_dir=$(dirname $0)
-scripts_dir=$(dirname $installers_dir)
-
 # include helper.sh
-. $scripts_dir/helpers/helper.sh
+. helper.sh
 
 # rbenv
 git_clone_or_update https://github.com/sstephenson/rbenv.git ~/.rbenv
