@@ -19,13 +19,19 @@ module MySystem
 
       private
 
+      def bundle_dir
+        MySystem::Dir.user_home.join('.vim', 'bundle')
+      end
+
+      def neobundle_dir
+        bundle_dir.join('neobundle.vim')
+      end
+
       def install_bundler
         # mkdir ~/.vim/bundle
-        bundle_dir = MySystem::Dir.user_home.join('.vim', 'bundle')
         FileUtils.mkdir_p bundle_dir
 
         # git clone, or git pull
-        neobundle_dir = bundle_dir.join('neobundle.vim')
         if ::File.directory?(neobundle_dir)
           cmd = "cd #{neobundle_dir} && git pull origin master"
         else
@@ -45,7 +51,6 @@ module MySystem
       end
 
       def install_dependency
-        neobundle_dir = bundle_dir.join('neobundle.vim')
         cmd = "#{neobundle_dir.join('bin', 'neoinstall')}"
 
         if !system(cmd)
