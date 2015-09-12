@@ -1,0 +1,16 @@
+#!/bin/bash
+
+installers_dir=$(dirname $0)
+scripts_dir=$(dirname $installers_dir)
+
+# include helper.sh
+. $scripts_dir/helpers/helper.sh
+
+# rbenv
+git_clone_or_update https://github.com/sstephenson/rbenv.git ~/.rbenv
+
+# ruby-build
+git_clone_or_update https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+# rbenv-binstubs
+git_clone_or_update https://github.com/ianheggie/rbenv-binstubs.git ~/.rbenv/plugins/rbenv-binstubs
