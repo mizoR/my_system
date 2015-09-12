@@ -3,10 +3,15 @@ require 'pathname'
 require 'open3'
 
 module MySystem
+  class Error < StandardError
+  end
+
+  class InstallError
+  end
+
   module VimConfig
     class << self
       def install
-        setup
         install_bundler
         create_vimrc
       end
@@ -14,13 +19,21 @@ module MySystem
       private
 
       def install_bundler
-        cmd = 'curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh'
-        Open3.popen3(cmd) {|i, o, e, w|
-          i.close
-          $stdout.puts o.read
-          $stderr.puts e.read
-          exit 1 if w.value.exit != 0
-        }
+        # mkdir ~/.vim/bundle
+        bundle_dir = MySystem::Dir.user_home.join('.vim', 'bundle')
+        FileUtils.mkdir_p bundle_dir
+
+        # git clone, or git pull
+        neobundle_dir = ::bundle_dir.join('neobundle.vim')
+        if ::Dir.exist?(neobundle_dir)
+          cmd = "cd #{neobundle_dir} && git pull origin master"
+        else
+          cmd = "git clone https://github.com/Shougo/neobundle.vim #{neobundle_dir}"
+        end
+
+        if !system(cmd)
+          raise MySystem::InstallError
+        end
       end
 
       def create_vimrc
@@ -28,11 +41,6 @@ module MySystem
         dst = MySystem::Dir.user_home.join('.vimrc')
 
         FileUtils.ln_sf(src, dst)
-      end
-
-      def setup
-        bundle_dir = MySystem::Dir.user_home.join('.vim', 'bundle')
-        FileUtils.mkdir_p bundle_dir
       end
     end
   end
