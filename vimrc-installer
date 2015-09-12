@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# include helper.sh
+. helper.sh
+
+mkdir -p ~/.vim/bundle
+
+# neobundle
+git_clone_or_update https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+
+ln -sf ~/my_system/dotfiles/.vim ~/.vim
+ln -sf ~/my_system/dotfiles/.vimrc ~/.vimrc
+
+# install dependency
+vim -u ~/.vimrc -i NONE -c "try | NeoBundleUpdate! | finally | q! | endtry" -e -s -V1
