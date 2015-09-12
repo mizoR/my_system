@@ -14,6 +14,7 @@ module MySystem
       def install
         install_bundler
         create_vimrc
+        install_dependency
       end
 
       private
@@ -34,12 +35,6 @@ module MySystem
         if !system(cmd)
           raise MySystem::InstallError
         end
-
-        cmd = "#{neobundle_dir.join('bin', 'neoinstall')}"
-
-        if !system(cmd)
-          raise MySystem::InstallError
-        end
       end
 
       def create_vimrc
@@ -47,6 +42,15 @@ module MySystem
         dst = MySystem::Dir.user_home.join('.vimrc')
 
         FileUtils.ln_sf(src, dst)
+      end
+
+      def install_dependency
+        neobundle_dir = bundle_dir.join('neobundle.vim')
+        cmd = "#{neobundle_dir.join('bin', 'neoinstall')}"
+
+        if !system(cmd)
+          raise MySystem::InstallError
+        end
       end
     end
   end
