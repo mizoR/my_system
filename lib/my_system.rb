@@ -48,11 +48,11 @@ module MySystem
   module Dir
     class << self
       def root
-        Pathname.new(File.join(File.dirname(__FILE__), '..'))
+        Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), '..')))
       end
 
       def dotfiles
-        root.join('lib', 'dotfiles')
+        root.join('dotfiles')
       end
 
       def user_home
