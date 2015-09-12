@@ -4,7 +4,7 @@ require 'open3'
 module MySystem
   module VimConfig
     class << self
-      def apply
+      def install
         setup
         install_bundler
         create_vimrc
@@ -53,8 +53,8 @@ module MySystem
   end
 
   class << self
-    def apply
-      VimConfig.apply
+    def install
+      VimConfig.install
     end
   end
 end
