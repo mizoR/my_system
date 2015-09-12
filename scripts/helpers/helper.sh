@@ -7,6 +7,6 @@ function git_clone_or_update() {
   if [ -d "$home" ]; then
     ( cd $home && git pull origin `git name-rev --name-only HEAD` )
   else
-    git clone $repo $home
+    git clone --depth=1 $repo $home
   fi
 }
