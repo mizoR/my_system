@@ -24,8 +24,8 @@ module MySystem
         FileUtils.mkdir_p bundle_dir
 
         # git clone, or git pull
-        neobundle_dir = ::bundle_dir.join('neobundle.vim')
-        if ::Dir.exist?(neobundle_dir)
+        neobundle_dir = bundle_dir.join('neobundle.vim')
+        if ::File.directory?(neobundle_dir)
           cmd = "cd #{neobundle_dir} && git pull origin master"
         else
           cmd = "git clone https://github.com/Shougo/neobundle.vim #{neobundle_dir}"
@@ -48,7 +48,7 @@ module MySystem
   module Dir
     class << self
       def root
-        Pathname.new(__dir__, '..')
+        Pathname.new(File.join(File.dirname(__FILE__), '..'))
       end
 
       def dotfiles
