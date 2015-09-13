@@ -5,9 +5,6 @@
 
 git_clone_or_update https://github.com/robbyrussell/oh-my-zsh.git $MYSYS_HOME/dotfiles/.oh-my-zsh
 
-before_install
-
 ln -sf $MYSYS_HOME/dotfiles/.oh-my-zsh ~/.oh-my-zsh
-
 ln -sf $MYSYS_HOME/dotfiles/.zshrc ~/.zshrc
 ln -sf $MYSYS_HOME/dotfiles/.zshenv ~/.zshenv

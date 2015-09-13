@@ -3,6 +3,4 @@
 # include helper.sh
 . helper.sh
 
-before_install
-
 ln -sf $MYSYS_HOME/dotfiles/.tmux.conf ~/.tmux.conf

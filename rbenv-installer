@@ -12,8 +12,5 @@ git_clone_or_update https://github.com/sstephenson/ruby-build.git $MYSYS_HOME/do
 # rbenv-binstubs
 git_clone_or_update https://github.com/ianheggie/rbenv-binstubs.git $MYSYS_HOME/dotfiles/.rbenv/plugins/rbenv-binstubs
 
-# ensure mysys_home linked, other
-before_install
-
 # install rbenv
 ln -sf $MYSYS_HOME/dotfiles/.rbenv ~/.rbenv

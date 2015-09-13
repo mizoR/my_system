@@ -3,7 +3,5 @@
 # include helper.sh
 . helper.sh
 
-before_install
-
 # .gitconfig
 ln -sf $MYSYS_HOME/dotfiles/.gitconfig ~/.gitconfig

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. helper.sh
+
+before_install
+
+. package-installer
+. zshrc-installer
+
+echo "Please execute folloing commands for install completion."
+echo ""
+echo "    $ exec zsh"
+echo "    $ (cd $MYSYS_HOME && ./SettingsInstaller)"

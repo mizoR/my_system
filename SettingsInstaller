@@ -1,0 +1,7 @@
+#!/bin/bash
+
+./gitconfig-installer
+./go-tools-installer
+./rbenv-installer
+./tmux-conf-installer
+./vimrc-installer
