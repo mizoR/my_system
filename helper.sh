@@ -1,5 +1,9 @@
 #!/bin/bash
 
+MYSYS_HOME=~/.my_system
+
+ln -sf "$(cd $(dirname $0); pwd)" $MYSYS_HOME
+
 function git_clone_or_update() {
   local repo=$1
   local home=$2

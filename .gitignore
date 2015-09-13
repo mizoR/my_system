@@ -1,0 +1,5 @@
+/vagrant
+/.vagrant
+/dotfiles/.oh-my-zsh
+/dotfiles/.rbenv
+/dotfiles/.vim/bundle

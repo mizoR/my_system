@@ -3,13 +3,13 @@
 # include helper.sh
 . helper.sh
 
-mkdir -p ~/.vim/bundle
+mkdir -p $MYSYS_HOME/.vim/bundle
 
 # neobundle
-git_clone_or_update https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+git_clone_or_update https://github.com/Shougo/neobundle.vim.git $MYSYS_HOME/dotfiles/.vim/bundle/neobundle.vim
 
-ln -sf ~/my_system/dotfiles/.vim ~/.vim
-ln -sf ~/my_system/dotfiles/.vimrc ~/.vimrc
+ln -sf $MYSYS_HOME/dotfiles/.vim ~/.vim
+ln -sf $MYSYS_HOME/dotfiles/.vimrc ~/.vimrc
 
 # install dependency
 vim -u ~/.vimrc -i NONE -c "try | NeoBundleUpdate! | finally | q! | endtry" -e -s -V1

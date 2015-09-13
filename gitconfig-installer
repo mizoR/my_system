@@ -4,4 +4,4 @@
 . helper.sh
 
 # .gitconfig
-ln -sf ~/my_system/dotfiles/.gitconfig ~/.gitconfig
+ln -sf $MYSYS_HOME/dotfiles/.gitconfig ~/.gitconfig

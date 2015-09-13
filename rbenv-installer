@@ -4,10 +4,13 @@
 . helper.sh
 
 # rbenv
-git_clone_or_update https://github.com/sstephenson/rbenv.git ~/.rbenv
+git_clone_or_update https://github.com/sstephenson/rbenv.git $MYSYS_HOME/dotfiles/.rbenv
 
 # ruby-build
-git_clone_or_update https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git_clone_or_update https://github.com/sstephenson/ruby-build.git $MYSYS_HOME/dotfiles/.rbenv/plugins/ruby-build
 
 # rbenv-binstubs
-git_clone_or_update https://github.com/ianheggie/rbenv-binstubs.git ~/.rbenv/plugins/rbenv-binstubs
+git_clone_or_update https://github.com/ianheggie/rbenv-binstubs.git $MYSYS_HOME/dotfiles/.rbenv/plugins/rbenv-binstubs
+
+# install rbenv
+ln -sf $MYSYS_HOME/dotfiles/.rbenv ~/.rbenv

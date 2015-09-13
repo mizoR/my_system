@@ -3,4 +3,4 @@
 # include helper.sh
 . helper.sh
 
-ln -sf ~/my_system/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf $MYSYS_HOME/dotfiles/.tmux.conf ~/.tmux.conf
