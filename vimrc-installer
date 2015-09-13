@@ -8,6 +8,8 @@ mkdir -p $MYSYS_HOME/.vim/bundle
 # neobundle
 git_clone_or_update https://github.com/Shougo/neobundle.vim.git $MYSYS_HOME/dotfiles/.vim/bundle/neobundle.vim
 
+before_install
+
 ln -sf $MYSYS_HOME/dotfiles/.vim ~/.vim
 ln -sf $MYSYS_HOME/dotfiles/.vimrc ~/.vimrc
 

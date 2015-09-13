@@ -3,10 +3,10 @@
 # include helper.sh
 . helper.sh
 
-# .oh-my-zsh
 git_clone_or_update https://github.com/robbyrussell/oh-my-zsh.git $MYSYS_HOME/dotfiles/.oh-my-zsh
+
+before_install
 
 ln -sf $MYSYS_HOME/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 
-# .zshrc
 ln -sf $MYSYS_HOME/dotfiles/.zshrc ~/.zshrc

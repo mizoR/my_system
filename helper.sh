@@ -2,7 +2,13 @@
 
 MYSYS_HOME=~/.my_system
 
-ln -sf "$(cd $(dirname $0); pwd)" $MYSYS_HOME
+function before_install {
+  ensure_mysys_home_linked
+}
+
+function ensure_mysys_home_linked {
+  ln -sf "$(cd $(dirname $0); pwd)" $MYSYS_HOME
+}
 
 function git_clone_or_update() {
   local repo=$1
@@ -13,4 +19,16 @@ function git_clone_or_update() {
   else
     git clone --depth=1 $repo $home
   fi
+}
+
+function is_redhat {
+  [[ -f /etc/redhat-release ]]
+}
+
+function is_debian {
+  [[ -f /etc/debian_version ]]
+}
+
+function is_osx {
+  [[ $OSTYPE =~ ^darwin ]]
 }
