@@ -2,14 +2,6 @@
 
 MYSYS_HOME=~/.my_system
 
-function before_install {
-  ensure_mysys_home_linked
-}
-
-function ensure_mysys_home_linked {
-  ln -sf "$(cd $(dirname $0); pwd)" $MYSYS_HOME
-}
-
 function git_clone_or_update() {
   local repo=$1
   local home=$2

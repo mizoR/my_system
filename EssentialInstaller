@@ -10,4 +10,4 @@ before_install
 echo "Please execute folloing commands for install completion."
 echo ""
 echo "    $ exec zsh"
-echo "    $ (cd $MYSYS_HOME && ./SettingsInstaller)"
+echo "    $ cd $MYSYS_HOME && ./SettingsInstaller"
