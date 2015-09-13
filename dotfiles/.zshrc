@@ -10,37 +10,6 @@ DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ ":$PATH:" != *:"/usr/local/bin":* ]]; then
-  export PATH="/usr/local/bin:$PATH"
-fi
-
-. ~/google-cloud-sdk/path.zsh.inc
-
-if [[ ":$PATH:" != *:"$HOME/bin":* ]]; then
-  export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -L ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-if [ -d ~/.nodebrew ]; then
-  export NODEBREW_ROOT=$HOME/.nodebrew
-  export PATH=$NODEBREW_ROOT/current/bin:$PATH
-fi
-
-XCODE_BIN=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
-if [ -d $XCODE_BIN ]; then
-  export PATH="$XCODE_BIN:$PATH"
-fi
-
-if [ -d $PYENV_ROOT ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-fi
-
 if [ -L ~/.zsh-completions ]; then
   fpath=(~/.zsh-completions/src $fpath)
   autoload -U compinit; compinit -u
@@ -69,12 +38,6 @@ zle -N cdup
 bindkey '\^' cdup
 
 export BUNDLER_EDITOR=~/dotfiles/bin/bundler.sh
-
-if [ -x "`which go`" ]; then
-  export GOROOT=`go env GOROOT`
-  export GOPATH=$HOME
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
 
 # https://github.com/lestrrat/peco
 if [ -x "`which peco`" ]; then
@@ -129,8 +92,4 @@ if [ -x "`which peco`" ]; then
   }
   zle -N peco-dropbox
   bindkey '^[' peco-dropbox
-fi
-
-if [ -x "`which dirnenv`" ]; then
-  eval "$(direnv hook zsh)"
 fi
