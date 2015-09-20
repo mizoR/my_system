@@ -4,26 +4,26 @@ type go
 if [ $? -ne 0 ]; then
   is_debian && sudo aptitude -y install golang
   is_osx    && brew install go
-  is_centos && sudo yum -y install golang
+  is_redhat && sudo yum -y install golang
 fi
 
 type vim
 if [ $? -ne 0 ]; then
   is_debian && sudo aptitude -y install vim
   is_osx    && brew install vim
-  is_centos && sudo yum -y install vim
+  is_redhat && sudo yum -y install vim
 fi
 
 type git
 if [ $? -ne 0 ]; then
   is_debian && sudo aptitude -y install git
   is_osx    && brew install git
-  is_centos && sudo yum -y install git
+  is_redhat && sudo yum -y install git
 fi
 
 type zsh
 if [ $? -ne 0 ]; then
   is_debian && sudo aptitude -y install zsh
   is_osx    && brew install zsh
-  is_centos && sudo yum -y install zsh
+  is_redhat && sudo yum -y install zsh
 fi
