@@ -1,12 +1,5 @@
 #!/bin/bash
 
-type zsh
-if [ $? -ne 0 ]; then
-  is_debian && sudo aptitude -y install zsh
-  is_osx    && brew install zsh
-  is_centos && sudo yum -y install zsh
-fi
-
 type go
 if [ $? -ne 0 ]; then
   is_debian && sudo aptitude -y install golang
